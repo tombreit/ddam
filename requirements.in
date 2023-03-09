@@ -12,3 +12,4 @@ requests
 pygments
 idutils
 whitenoise
+gunicorn

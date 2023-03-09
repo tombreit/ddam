@@ -35,6 +35,8 @@ django-htmx==1.14.0
     # via -r requirements.in
 django-taggit==3.1.0
     # via -r requirements.in
+gunicorn==20.1.0
+    # via -r requirements.in
 idna==3.4
     # via requests
 idutils==1.2.0
@@ -61,3 +63,6 @@ urllib3==1.26.14
     # via requests
 whitenoise==6.4.0
     # via -r requirements.in
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
