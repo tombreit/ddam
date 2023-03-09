@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn ddam.wsgi
+web: python3 manage.py migrate && gunicorn ddam.wsgi
