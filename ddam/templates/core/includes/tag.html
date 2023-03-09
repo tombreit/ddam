@@ -1,0 +1,33 @@
+{% if linked == "false" %}
+<span 
+    class="badge rounded-pill text-bg-light position-relative me-3"
+>
+    {{ obj.get_icon }} {{ obj.name }}
+
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+        {{ obj.count }}
+    </span>
+</span>
+{% elif linked == "self" %}
+<a 
+    class="badge rounded-pill text-bg-info position-relative me-3"
+    href="{% url detailurl detailid %}"
+>
+    {{ obj.get_icon }} {{ obj.name }}
+
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+        {{ obj.count }}
+    </span>
+</a>
+{% else %}
+<a 
+    class="badge rounded-pill text-bg-info position-relative me-3"
+    href="{% url 'core:asset-list' %}?usage={{ obj.slug }}"
+>
+    {{ obj.get_icon }} {{ obj.name }}
+
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger">
+        {{ obj.count }}
+    </span>
+</a>
+{% endif %}

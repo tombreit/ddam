@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50.537994mm"
+   height="18.799366mm"
+   viewBox="0 0 50.537994 18.799366"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="ddam-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2"
+     inkscape:cx="83.5"
+     inkscape:cy="144.25"
+     inkscape:window-width="1920"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3">
+    <inkscape:grid
+       type="xygrid"
+       id="grid117"
+       originx="-71.945483"
+       originy="-111.00872" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2880"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,1,0,1,0,0.02,0,1 @ F,1,0,1,0,0.02,0,1 @ F,1,0,1,0,0.02,0,1 @ F,1,0,1,0,0.02,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="2"
+       chamfer_steps="1"
+       flexible="true"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1847"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="4"
+       chamfer_steps="1"
+       flexible="true"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <rect
+       x="227.95631"
+       y="428.36539"
+       width="153.65735"
+       height="81.757889"
+       id="rect113" />
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="bg"
+     transform="translate(-71.94548,-111.00872)">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:0.265;stroke-dasharray:none"
+       id="rect119"
+       width="50.537994"
+       height="18.799366"
+       x="71.94548"
+       y="111.00872"
+       inkscape:path-effect="#path-effect2880"
+       d="m 72.95624,111.00872 49.15125,0 a 0.37598732,0.37598732 45 0 1 0.37598,0.37599 v 17.41262 a 1.0107599,1.0107599 135 0 1 -1.01076,1.01076 H 72.321468 A 0.37598732,0.37598732 45 0 1 71.94548,129.4321 v -17.41262 a 1.0107599,1.0107599 135 0 1 1.01076,-1.01076 z"
+       sodipodi:type="rect" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Ebene 2"
+     transform="translate(-71.94548,-111.00872)">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke-width:0.265;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect179"
+       width="37.374653"
+       height="16.278336"
+       x="83.652122"
+       y="112.42445"
+       inkscape:path-effect="#path-effect1847"
+       d="m 85.147109,112.42445 h 35.228531 a 0.65113342,0.65113342 45 0 1 0.65114,0.65114 l 0,14.13221 a 1.4949861,1.4949861 135 0 1 -1.49499,1.49499 H 84.303256 a 0.65113342,0.65113342 45 0 1 -0.651134,-0.65113 v -14.13222 a 1.4949861,1.4949861 135 0 1 1.494987,-1.49499 z"
+       sodipodi:type="rect" />
+  </g>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-71.94548,-111.00872)">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text111"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:1.25;font-family:Lato;-inkscape-font-specification:Lato;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect113);fill:#000000;fill-opacity:0" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:2.30717px;word-spacing:0px;stroke-width:0.264583"
+       x="72.155617"
+       y="126.48301"
+       id="text119"><tspan
+         sodipodi:role="line"
+         id="tspan117"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:16.9333px;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Light';stroke-width:0.264583"
+         x="72.155617"
+         y="126.48301">D<tspan
+   style="fill:#ffffff"
+   id="tspan2214">DAM</tspan></tspan></text>
+  </g>
+</svg>

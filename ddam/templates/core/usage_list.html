@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+    Usage
+{% endblock %}
+
+{% block content %}
+
+    {% include 'core/includes/title_row.html' with heading="Usage" createurl="core:usage-create" %}
+
+    {% if usage %}
+        {% for usage in usage %}
+            {% include 'core/includes/tag.html' with obj=usage linked="self" detailurl="core:usage-detail" detailid=usage.pk %}
+        {% endfor %}
+    {% else %}
+        <p>
+            <i>No usages found.</i>
+            <br>
+            <a 
+                class="btn btn-primary"
+                href="{% url 'core:usage-create' %}"
+            >
+                <i class="bi bi-plus-circle"></i>
+                Add one?
+            </a>
+        </p>
+    {% endif %}
+
+{% endblock %}

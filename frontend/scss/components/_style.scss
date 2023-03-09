@@ -1,0 +1,35 @@
+body {
+    background-color: $ddam-primary;
+}
+
+header {
+    padding-top: 15px;
+    background-color: $ddam-primary;
+
+    .navbar {
+        background-color: adjust-color($ddam-primary, $lightness: 10%);
+    }
+
+    .nav-link {
+        color: white;
+
+        &:hover {
+            color: adjust-color(white, $blackness: 20%);
+        }
+    }
+}
+
+main {
+    background-color: white;
+    padding: 2em 0;
+}
+
+footer {
+    padding: 2em 0;
+    background-color: $ddam-primary;
+    line-height: 4em;
+
+    img {
+        height: 4em;
+    }
+}

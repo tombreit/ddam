@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}
+    Usage {{ usage.name }}
+{% endblock %}
+
+{% block content %}
+
+{% include 'core/includes/title_row.html' with heading="Usage" editurl="core:usage-update" objid=usage.pk %}
+
+<table class="table my-4">
+    <tbody>
+        <tr>
+            <th class="text-nowrap" style="width: 1%;">
+                Usage
+            </th>
+            <td>
+                {{ usage.name }}
+            </td>
+        </tr>
+        <tr>
+            <th class="text-nowrap">
+                Usage URL
+            </th>
+            <td>
+                <a href="{{ usage.url }}">{{ usage.url }}</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="text-nowrap">
+                Notes
+            </th>
+            <td>
+                {{ usage.notes | linebreaks }}
+            </td>
+        </tr>
+        <tr>
+            <th>Assets</th>
+            <td>
+                <a href="{% url 'core:asset-list' %}?usage={{ usage.slug }}">
+                    {{ assets }} related asset{{ assets|pluralize }}
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

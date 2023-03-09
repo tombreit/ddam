@@ -1,0 +1,43 @@
+{% load i18n static %}
+
+<footer class="text-white small">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <a 
+                    href="https://github.com/tombreit"
+                    class="text-white text-decoration-none"
+                >
+                    <img 
+                        src="{% static 'branding/ddam-logo.svg' %}" 
+                        class="d-inline-block me-2"
+                        style="max-height: 1.25em;"
+                        title="{% translate 'DDAM' %}{% translate 'Digital Asset Management' %}"
+                    >
+                    &copy; {% now "Y" %}
+                </a>
+            </div>
+            <div class="col-6 col-md-8 text-end">
+                <span class="d-inline-block mr-4">
+                {% if user.is_authenticated %}
+
+                    {% block footer_project_tools %}
+                    {% endblock footer_project_tools %}
+
+                    <a 
+                        class="btn btn-secondary btn-sm" 
+                        href="
+                        {% block footer_backend_link %}
+                            {% url 'admin:core_asset_changelist' %}
+                        {% endblock footer_backend_link %}
+                        "
+                    >
+                        <i class="bi bi-gear"></i>
+                        Backend
+                    </a>
+                {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,22 @@
+$ddam-primary: #3459e6;
+$ddam-gray: rgb(102,102,102);
+$ddam-gray-light: rgb(246,246,246);
+$ddam-gray-bg: rgb(238,238,238);
+
+
+
+$theme-colors: (
+  "primary": $ddam-primary,
+);
+
+$link-decoration: underline;
+$bootstrap-icons-font-dir: "npm:bootstrap-icons/font/fonts";
+
+/* --- Set common styles ---------------------------------------------------- */
+
+@use "bootstrap/scss/bootstrap";
+// @use "bootstrap-icons/font/bootstrap-icons";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+@import "components/_style";
+@import "components/_assets";

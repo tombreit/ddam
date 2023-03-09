@@ -1,0 +1,98 @@
+{% extends '_base.html' %}
+{% load humanize %}
+{% load static %}
+
+{% block title %}
+    Asset {{ asset.title }}
+{% endblock %}
+
+{% block content %}
+
+{% include 'core/includes/title_row.html' with heading="Asset" editurl="core:asset-update" objid=asset.pk %}
+
+<div class="d-flex mt-4">
+    <div class="flex-shrink-1 me-4">
+        <img src="{{ asset.file.url }}" alt="{{ asset.title }}" style="max-height: 300px;">
+    </div>
+    <div class="flex-grow-1">
+        <p>
+            <span class="text-muted">
+                Title
+            </span>
+            <br>
+            <strong>
+                {{ asset.title }}
+            </strong>
+            <br>
+            {{ asset.description }}
+        </p>
+        <p>
+            <span class="text-muted">
+                Usage
+            </span>
+            <br>
+            {% for usage in asset.get_usage_with_count %}
+                {% include 'core/includes/tag.html' with obj=usage %}
+            {% empty %}
+                n/a
+            {% endfor %}
+        </p>
+        <p class="text-muted">
+            <span>
+                Meta
+            </span>
+            <div class="small">
+                Filesize: {{ asset.file.size | filesizeformat }}
+                <br>
+                Uploaded: {{ asset.created_at | naturalday }} by {{ asset.created_by }}
+                {% if asset.updated_at != asset.created_at %}
+                <br>
+                Updated: {{ asset.updated_at | naturalday }}
+                {% if asset.updated_by %} by {{ asset.updated_by }}{% endif %}
+                {% endif %}
+            </div>
+        </p>
+
+    </div>
+    <div class="flex-grow-1">
+        <p>
+            <span class="text-muted">
+                Licence
+            </span>
+            <br>
+            <span class="text-muted">
+                {% if asset.licence %}
+                <a href="{% url 'core:licence-detail' asset.licence.pk %}">
+                    {{ asset.licence }}
+                </a>
+                {% else %}
+                    n/a
+                {% endif %}
+            </span>
+        </p>
+        <p>
+            <span class="text-muted">
+                Copyright statement
+            </span>
+            <br>
+            {% if asset.copyright_statement %}
+                {{ asset.copyright_statement }}
+            {% else %}
+                n/a
+            {% endif %}
+        </p>
+        <p>
+            <span class="text-muted">
+                Usage restrictions
+            </span>
+            <br>
+            {% if asset.usage_restriction %}
+                {{ asset.usage_restriction.description|linebreaksbr }}
+            {% else %}
+                n/a
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load i18n %}
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Not Found</title>
+</head>
+<body>
+    <h2>{% translate 'Page not found' %}</h2>
+
+    <p>{% translate 'We’re sorry, but the requested page could not be found.' %}</p>
+
+    <p>
+        {{ exception|safe }}
+    </p>
+
+</body>
+</html>

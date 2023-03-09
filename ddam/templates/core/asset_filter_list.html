@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    {% include 'core/includes/title_row.html' with heading="Assets" createurl="core:asset-create" createmultiurl="core:asset-upload-multiple" %}
+
+    <div class="alert alert-info small">
+        {% crispy filter.form %}
+    </div>
+
+    <div class="d-flex flex-wrap">
+    {% for obj in filter.qs %}
+        {% include 'core/includes/asset_list_item.html' with asset=obj %}
+    {% empty %}
+        <p>
+            <i>No assets found.</i>
+            <br>
+            <a 
+                class="btn btn-primary"
+                href="{% url 'core:asset-create' %}"
+            >
+                Add one?
+            </a>
+        </p>
+    {% endfor %}
+    </div>
+
+{% endblock %}

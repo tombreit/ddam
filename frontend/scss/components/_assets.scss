@@ -1,0 +1,13 @@
+.asset-list-tile {
+    text-decoration: none;
+    border-radius: 9px;
+
+    &:hover {
+        background-color: #eaeaea;
+    }
+
+    img {
+        max-height: 200px;
+        max-width: 400px;
+    }
+}

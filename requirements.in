@@ -1,0 +1,13 @@
+django==4.1.7
+
+django-environ
+django-crispy-forms
+crispy-bootstrap5
+django-auth-ldap
+django-taggit
+django-htmx
+django-filter
+
+requests
+pygments
+idutils

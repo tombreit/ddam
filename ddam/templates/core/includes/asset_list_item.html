@@ -1,0 +1,25 @@
+<div class="asset-list-item flex-fill text-center p-2">
+    <a 
+        class="asset-list-tile d-block p-2"
+        href="{% url 'core:asset-detail' asset.pk %}"
+    >
+        <img 
+            src="{{ asset.file.url }}" 
+            alt="{{ asset.title }}" 
+            decoing="async"
+            loading="lazy"
+        >
+        <br>
+        {{ asset.title }}
+        <br>
+        <span class="text-muted" title="Licence">
+            <i class="bi bi-signpost-split"></i>
+            {{ asset.licence }}
+        </span>
+        <br>
+
+        {% for tag in asset.usage_tags.all %}
+            {{ tag.name }} {{ tag.get_icon }}
+        {% endfor %}
+    </a>
+</div>

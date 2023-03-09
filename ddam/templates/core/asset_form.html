@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+  {% include 'core/includes/title_row.html' with heading="Asset" %}
+
+  {% crispy form %}
+
+{% endblock %}

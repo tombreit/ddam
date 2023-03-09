@@ -1,0 +1,11 @@
+# Dependency paths
+node_modules/
+.parcel-cache/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Project paths
+.env
+/run/*
+/ddam/static/dist/*

@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-between mb-4">
+    <h2>
+        {{ heading }}
+    </h2>
+    <div>
+        {% if createurl %}
+        <a 
+            class="btn btn-primary"
+            href="{% url createurl %}"
+        >
+            <i class="bi bi-plus-circle"></i>
+            Add
+        </a>
+        {% endif %}
+
+        {% if createmultiurl %}
+        <a 
+            class="btn btn-primary"
+            href="{% url createmultiurl %}"
+        >
+            <i class="bi bi-plus-circle-dotted"></i>
+            Add multiple
+        </a>
+        {% endif %}
+
+        {%if editurl %}
+        <a 
+            class="btn btn-primary"
+            href="{% url editurl objid %}"
+            >
+            <i class="bi bi-pencil-square"></i>
+            Edit
+        </a>
+        {% endif %}
+    </div>
+</div>
