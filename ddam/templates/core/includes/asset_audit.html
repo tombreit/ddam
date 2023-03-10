@@ -1,0 +1,11 @@
+{% load humanize %}
+
+
+{{ action|title}}: 
+<i class="bi bi-clock"></i> {{ timestamp | naturalday }} 
+
+{% if by %} 
+by <a href="mailto:{{ by }}">
+    <i class="bi bi-envelope"></i> {{ by }}
+</a>
+{% endif %}

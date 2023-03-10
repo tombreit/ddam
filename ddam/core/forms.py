@@ -61,6 +61,7 @@ class AssetForm(forms.ModelForm):
         self.helper.layout = Layout(
             FloatingField('title'),
             Field('file'),
+            FloatingField('source_url'),
             FloatingField('copyright_statement'),
             FloatingField('description'),
             Div(
@@ -92,6 +93,7 @@ class AssetForm(forms.ModelForm):
             "file",
             "description",
             "copyright_statement",
+            "source_url",
             "licence",
             "usage",
         ]

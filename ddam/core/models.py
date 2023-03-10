@@ -11,57 +11,6 @@ from django.db.models import Count
 from django.urls import reverse
 
 
-class Usage(models.Model):
-
-    class MediaChoices(models.TextChoices):
-        WEB = 'WEB'
-        PRINT = 'PRT'
-
-    name = models.CharField(
-        max_length=255,
-        blank=False,
-        unique=True,
-    )
-    slug = models.SlugField(
-        max_length=255,
-        blank=False,
-        unique=True,
-    )
-    notes = models.TextField(
-        blank=True,
-        help_text=_('E.g. usage information, URLs'),
-    )
-    media = models.CharField(
-        max_length=3,
-        choices=MediaChoices.choices,
-    )
-
-    @property
-    def get_icon(self):
-        icon = ''
-        if self.media == self.MediaChoices.WEB:
-            icon = '<i class="bi bi-globe"></i>'
-        elif self.media == self.MediaChoices.PRINT:
-            icon = '<i class="bi bi-printer"></i>'
-
-        return mark_safe(icon)
-
-    def get_absolute_url(self):
-        return reverse('core:usage-detail', kwargs={'pk': self.pk})
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        return super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = _("Usage tag")
-        verbose_name_plural = _("Usage tags")
-
-
 class SingletonBaseModel(models.Model):
 
     def save(self, *args, **kwargs):
@@ -107,6 +56,57 @@ class AbstractUserTrackedModel(models.Model):
         abstract = True
 
 
+class Usage(models.Model):
+
+    class MediaChoices(models.TextChoices):
+        WEB = 'WEB'
+        PRINT = 'PRT'
+
+    name = models.CharField(
+        max_length=255,
+        blank=False,
+        unique=True,
+    )
+    slug = models.SlugField(
+        max_length=255,
+        blank=False,
+        unique=True,
+    )
+    notes = models.TextField(
+        blank=True,
+        help_text=_('E.g. usage information, URLs'),
+    )
+    media = models.CharField(
+        max_length=3,
+        choices=MediaChoices.choices,
+    )
+
+    @property
+    def get_icon(self):
+        icon = ''
+        if self.media == self.MediaChoices.WEB:
+            icon = '<i class="bi bi-globe"></i>'
+        elif self.media == self.MediaChoices.PRINT:
+            icon = '<i class="bi bi-printer"></i>'
+
+        return mark_safe(icon)
+
+    def get_absolute_url(self):
+        return reverse('core:usage-detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name = _("Usage tag")
+        verbose_name_plural = _("Usage tags")
+
+
 class Licence(models.Model):
     name = models.CharField(
         max_length=255,
@@ -142,7 +142,7 @@ class UsageRestriction(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
 
 class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidModel, models.Model):
@@ -154,6 +154,12 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
     file = models.FileField(
         blank=False,
         upload_to='assets/',
+    )
+    filename_orig = models.CharField(
+        max_length=255,
+        blank=False,
+        editable=False,
+        help_text="Original filename. Set automatically while creating an asset."
     )
     description = models.TextField(
         blank=True
@@ -168,6 +174,11 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
         max_length=255,
         blank=True,
         help_text="Appropriate credit/Licence holder (if required by license)",
+    )
+    source_url = models.URLField(
+        blank=True,
+        verbose_name="Source URL",
+        help_text="Source/Origin of asset. Give an URL."
     )
     usage_restriction = models.ForeignKey(
         'core.usagerestriction',
@@ -201,4 +212,4 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
         return reverse('core:asset-detail', kwargs={'id': self.id})
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"

@@ -33,6 +33,7 @@ class MultiFileFieldFormView(FormView):
                 asset = Asset(
                     file=f,
                     title=f.name,
+                    filename_orig=f.name,
                     created_by=request.user.email,
                 )
                 assets_upload.append(asset)
@@ -82,6 +83,7 @@ class AssetCreate(CreateView):
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user.email
+        form.instance.filename_orig = form.cleaned_data['file'].name
         return super().form_valid(form)
 
 

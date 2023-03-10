@@ -37,21 +37,26 @@
                 n/a
             {% endfor %}
         </p>
-        <p class="text-muted">
-            <span>
+        <div>
+            <span class="text-muted">
                 Meta
             </span>
-            <div class="small">
-                Filesize: {{ asset.file.size | filesizeformat }}
+            <div class="small text-muted">
+                Filesize: <span class="font-monospace">{{ asset.file.size | filesizeformat }}</span>
                 <br>
-                Uploaded: {{ asset.created_at | naturalday }} by {{ asset.created_by }}
-                {% if asset.updated_at != asset.created_at %}
+                Orig filename: <span class="font-monospace">{{ asset.filename_orig }}</span>
                 <br>
-                Updated: {{ asset.updated_at | naturalday }}
-                {% if asset.updated_by %} by {{ asset.updated_by }}{% endif %}
+                {% if asset.source_url %}
+                <a href="{{ asset.source_url }}" title="{{ asset.source_url }}">
+                    <i class="bi bi-file-binary"></i> Source URL
+                </a>
                 {% endif %}
+                <br>
+                {% include 'core/includes/asset_audit.html' with action='uploaded' timestamp=asset.created_at by=asset.created_by %}
+                <br>
+                {% include 'core/includes/asset_audit.html' with action='updated' timestamp=asset.updated_at by=asset.updated_by %}
             </div>
-        </p>
+        </div>
 
     </div>
     <div class="flex-grow-1">
