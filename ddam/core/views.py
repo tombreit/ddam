@@ -1,12 +1,14 @@
 from django.db.models import Count, Q
+from django.db.models import Case, Value, When
 from django.shortcuts import render
+from django.urls import reverse
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
 
-from .models import Asset, Licence, Usage
+from .models import Asset, Licence, Usage, Dealer
 from .filters import AssetFilter
 from .forms import MultiFileFieldForm, AssetForm
 
@@ -69,11 +71,6 @@ class AssetListView(ListView):
 class AssetDetailView(DetailView):
     model = Asset
     pk_url_kwarg = "id"
-    
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['now'] = timezone.now()
-    #     return context
 
 
 class AssetCreate(CreateView):
@@ -165,6 +162,7 @@ class LicenceDetailView(DetailView):
         context['assets'] = Asset.objects.filter(licence=self.kwargs['pk']).count()
         return context
 
+
 class LicenceCreate(CreateView):
     model = Licence
     fields = '__all__'
@@ -173,3 +171,47 @@ class LicenceCreate(CreateView):
 class LicenceUpdate(UpdateView):
     model = Licence
     fields = '__all__'
+
+
+class DealerListView(ListView):
+    model = Dealer
+    context_object_name = "dealers"
+
+    def get_queryset(self):
+        try:
+            to_highlight = self.request.GET.get('highlight')
+            to_highlight_dealer_id = to_highlight.replace("dealer-", "")
+        except:
+            to_highlight_dealer_id = None
+
+        qs = (
+            Dealer
+            .objects
+            .annotate(
+                count=Count('asset'),
+            )
+            .annotate(
+                highlight=Case(
+                    When(id=to_highlight_dealer_id, then=Value(1)
+                ), default=Value(0))
+            )
+            .all()
+            .order_by("name")
+        )
+        return qs
+
+
+class DealerCreate(CreateView):
+    model = Dealer
+    fields = '__all__'
+
+    def get_success_url(self):
+        return f"{reverse('core:dealer-list')}?highlight=dealer-{self.object.id}"
+
+
+class DealerUpdate(UpdateView):
+    model = Dealer
+    fields = '__all__'
+
+    def get_success_url(self):
+        return f"{reverse('core:dealer-list')}?highlight=dealer-{self.object.id}"

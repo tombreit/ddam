@@ -22,7 +22,6 @@ class AssetFilter(django_filters.FilterSet):
     usage = django_filters.ModelMultipleChoiceFilter(
         field_name='usage__slug',
         to_field_name='slug',
-        label="Usage",
         # conjoined=True,  # AND conjunction
         widget=forms.CheckboxSelectMultiple,
         queryset=(
@@ -31,17 +30,20 @@ class AssetFilter(django_filters.FilterSet):
             .annotate(
                 count=Count('asset'),
             )
-            .exclude(count=0)
+            # .exclude(count=0)
         )
     )
     licence = django_filters.ModelChoiceFilter(
-        field_name='licence__slug',
-        to_field_name='slug',
+        field_name='licence',
+        # field_name='licence__slug',
+        # to_field_name='slug',
         widget=forms.RadioSelect,
         queryset=(
             Licence
             .objects
-            .all()
+            .annotate(
+                count=Count('asset'),
+            )
         )
     )
 
@@ -49,7 +51,6 @@ class AssetFilter(django_filters.FilterSet):
         model = Asset
         form = AssetFilterForm
         fields = [
-            'title',
-            'licence',
-            'usage',
+            'dealer',
+            'with_costs',
         ]

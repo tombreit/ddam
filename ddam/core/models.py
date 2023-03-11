@@ -1,6 +1,7 @@
 import uuid
 from django.conf import settings
 from django.db import models
+from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -103,8 +104,8 @@ class Usage(models.Model):
         return f"{self.name}"
 
     class Meta:
-        verbose_name = _("Usage tag")
-        verbose_name_plural = _("Usage tags")
+        verbose_name = _("Usage")
+        verbose_name_plural = _("Usage")
 
 
 class Licence(models.Model):
@@ -170,6 +171,16 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
         blank=True,
         on_delete=models.SET_NULL,
     )
+    dealer = models.ForeignKey(
+        'core.dealer',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
+    with_costs = models.BooleanField(
+        default=False,
+        help_text="If you actually paid for this asset, set this info here.",
+    )
     copyright_statement = models.CharField(
         max_length=255,
         blank=True,
@@ -189,7 +200,8 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
     usage = models.ManyToManyField(
         Usage,
         blank=True,
-        verbose_name="Usage tag",
+        verbose_name="Usage",
+        help_text="In which context this asset is in use."
     )
 
     @property
@@ -213,3 +225,26 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
 
     def __str__(self):
         return f"{self.title}"
+
+
+class Dealer(models.Model):
+    name = models.CharField(
+        max_length=255,
+        blank=False,
+        unique=True,
+        help_text="Name of dealer/distributor/vendor.",
+    )
+
+    def get_absolute_url(self):
+        return reverse('core:dealer-detail', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                Lower('name'),
+                name='dealer_name_unique_constraint',
+            ),
+        ]

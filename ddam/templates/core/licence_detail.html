@@ -36,7 +36,7 @@
         <tr>
             <th>Assets</th>
             <td>
-                <a href="{% url 'core:asset-list' %}?licence={{ licence.slug }}">
+                <a href="{% url 'core:asset-list' %}?licence={{ licence.id }}">
                     {{ assets }} related asset{{ assets|pluralize }}
                 </a>
             </td>

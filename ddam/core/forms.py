@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import ModelForm
 from django.utils.safestring import mark_safe
 
 from crispy_forms.helper import FormHelper
@@ -11,12 +10,6 @@ from crispy_forms.bootstrap import (
 )
 
 from .models import Asset
-
-
-class AssetForm(ModelForm):
-    class Meta:
-        model = Asset
-        fields = '__all__'
 
 
 class MultiFileFieldForm(forms.Form):
@@ -58,26 +51,36 @@ class AssetForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_id = 'asset-form'
         self.helper.form_method = 'post'
+        self.fields['with_costs'].label = mark_safe('<i class="bi bi-coin"></i> Paid for?')
+        self.fields['licence'].label = mark_safe('<i class="bi bi-signpost-split"></i> Licence')
+        self.fields['usage'].label = mark_safe('<i class="bi bi-diagram-2-fill"></i> Usage')
         self.helper.layout = Layout(
             FloatingField('title'),
             Field('file'),
-            FloatingField('source_url'),
-            FloatingField('copyright_statement'),
             FloatingField('description'),
+            Fieldset("Aquisition",
+                FloatingField('source_url'),
+                Div(
+                    Div(
+                        FloatingField('dealer'),
+                        css_class="flex-fill me-4",
+                    ),
+                    Div(
+                        Field('with_costs', css_class="form-check-input", wrapper_class="form-check form-switch"),
+                        css_class="flex-fill",
+                    ),
+                    css_class="d-flex mb-2",
+                ),
+                FloatingField('copyright_statement'),
+                InlineRadios('licence'),
+                css_class="bg-light rounded p-4 my-4",
+            ),
             Div(
-                Div(
-                    InlineCheckboxes('usage'),
-                    css_class="flex-fill me-4 p-2 bg-light"
-                ),
-                Div(
-                    InlineRadios('licence'),
-                    css_class="flex-fill ms-4 p-2 bg-light"
-                ),
-                css_class="d-flex my-4"
+                InlineCheckboxes('usage'),
+                css_class="me-4 p-4 bg-light rounded"
             ),
             HTML("""
             <button type="submit" class="btn btn-primary">
-                <i class="bi bi-search-heart-fill"></i>
                 Submit
             </button>
             """),
@@ -94,6 +97,8 @@ class AssetForm(forms.ModelForm):
             "description",
             "copyright_statement",
             "source_url",
+            "dealer",
+            "with_costs",
             "licence",
             "usage",
         ]

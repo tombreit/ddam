@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Asset, Licence, UsageRestriction, Usage
+from .models import Asset, Licence, UsageRestriction, Usage, Dealer
 
 
 @admin.register(Usage)
@@ -17,6 +17,11 @@ class UsageRestrictionAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Dealer)
+class DealerAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Licence)
 class LicenceAdmin(admin.ModelAdmin):
     list_display = ["name", "slug", "url"]
@@ -26,7 +31,9 @@ class LicenceAdmin(admin.ModelAdmin):
 
 @admin.register(Asset)
 class AssetAdmin(admin.ModelAdmin):
-    readonly_fields = ["image_preview"]
+    readonly_fields = [
+        "image_preview",
+    ]
 
     list_filter = [
         "licence",
@@ -36,7 +43,7 @@ class AssetAdmin(admin.ModelAdmin):
         list_display = list(super().get_list_display(request))
         list_display.append("image_preview")
         return list_display
-    
+
     def image_preview(self, obj):
         return format_html('<img src="{url}" height={height}>',
             url=obj.file.url,

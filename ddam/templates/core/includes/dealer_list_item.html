@@ -1,0 +1,28 @@
+
+<div class="col">
+    <div class="{% if dealer.highlight == 1 %} bg-opacity-25 text-bg-info {% endif %} card h-100" id="dealer-{{ dealer.id }}">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ dealer.name }}
+            </h5>
+            <p class="card-text">
+
+            </p>
+            {% if dealer.count > 0 %}
+            <a 
+                class="card-link"
+                href="{% url 'core:asset-list' %}?dealer={{ dealer.id }}">
+                <i class="bi bi-images"></i> {{ dealer.count }} related asset{{ dealer.count|pluralize }}
+            </a>
+            {% endif %}
+            <a 
+                class="card-link"
+                href="{% url 'core:dealer-update' dealer.id %}"
+                >
+                <i class="bi bi-pencil-square"></i>
+                Edit
+            </a>
+   
+        </div>
+    </div>
+</div>

@@ -20,4 +20,8 @@ urlpatterns = [
     path('licence/create/', views.LicenceCreate.as_view(), name='licence-create'),
     path('licence/<int:pk>/', views.LicenceDetailView.as_view(), name='licence-detail'),
     path('licence/<int:pk>/update/', views.LicenceUpdate.as_view(), name='licence-update'),
+
+    path('dealer/', views.DealerListView.as_view(), name="dealer-list"),
+    path('dealer/create/', views.DealerCreate.as_view(), name='dealer-create'),
+    path('dealer/<int:pk>/update/', views.DealerUpdate.as_view(), name='dealer-update'),
 ]

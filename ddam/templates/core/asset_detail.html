@@ -12,7 +12,13 @@
 
 <div class="d-flex mt-4">
     <div class="flex-shrink-1 me-4">
-        <img src="{{ asset.file.url }}" alt="{{ asset.title }}" style="max-height: 300px;">
+        <img 
+            src="{{ asset.file.url }}" 
+            alt="{{ asset.title }}" 
+            decoing="async"
+            loading="lazy"
+            style="max-height: 300px;"
+        >
     </div>
     <div class="flex-grow-1">
         <p>

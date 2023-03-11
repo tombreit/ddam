@@ -13,11 +13,11 @@
     <ol class="list-group">
     {% for licence in licences %}
     <li class="list-group-item">
-        <a href="{% url 'core:licence-detail' licence.pk %}">
+        <a href="{% url 'core:licence-detail' licence.id %}">
             <i class="bi bi-signpost-split"></i>
             {{ licence.name }}
             <span class="text-muted ms-4">
-                {{ licence.count }} related asset{{ assets|pluralize }}
+                {{ licence.count }} related asset{{ licence.count|pluralize }}
             </span>
         </a>
     </li>
