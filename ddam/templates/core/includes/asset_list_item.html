@@ -3,12 +3,7 @@
         class="asset-list-tile d-block p-2"
         href="{% url 'core:asset-detail' asset.pk %}"
     >
-        <img 
-            src="{{ asset.file.url }}" 
-            alt="{{ asset.title }}" 
-            decoing="async"
-            loading="lazy"
-        >
+        {% include 'core/includes/asset_img.html' %}
         <br>
         {{ asset.title }}
         <br>

@@ -1,0 +1,18 @@
+<div class="asset-img">
+    <div class="d-inline-block position-relative">
+        <img 
+            src="{{ asset.file.url }}" 
+            alt="{{ asset.title }}" 
+            decoing="async"
+            loading="lazy"
+        >
+        {% if asset.with_costs %}
+        <span 
+            class="position-absolute badge rounded-pill"
+            style="background-color: #85bb65; color: white; font-size: larger; right: 10px; top: 10px;"
+        >
+                <i title="You paid for this asset." class="bi bi-coin"></i>
+        </span>
+        {% endif %}
+    </div>
+</div>
