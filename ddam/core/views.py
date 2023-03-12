@@ -2,23 +2,25 @@ from django.db.models import Count, Q
 from django.db.models import Case, Value, When
 from django.shortcuts import render
 from django.urls import reverse
-
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.edit import FormView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Asset, Licence, Usage, Dealer
 from .filters import AssetFilter
 from .forms import MultiFileFieldForm, AssetForm
 
 
+@login_required
 def asset_filter_list(request):
     f = AssetFilter(request.GET, queryset=Asset.objects.all())
     return render(request, 'core/asset_filter_list.html', {'filter': f})
 
 
-class MultiFileFieldFormView(FormView):
+class MultiFileFieldFormView(LoginRequiredMixin, FormView):
     form_class = MultiFileFieldForm
     template_name = 'core/asset_upload_multiple.html'
     success_url = '/'  # Replace with your URL or reverse().
@@ -48,7 +50,7 @@ class MultiFileFieldFormView(FormView):
             return self.form_invalid(form)
 
 
-class AssetListView(ListView):
+class AssetListView(LoginRequiredMixin, ListView):
     model = Asset
     context_object_name = "assets"
 
@@ -68,12 +70,12 @@ class AssetListView(ListView):
         return qs
 
 
-class AssetDetailView(DetailView):
+class AssetDetailView(LoginRequiredMixin, DetailView):
     model = Asset
     pk_url_kwarg = "id"
 
 
-class AssetCreate(CreateView):
+class AssetCreate(LoginRequiredMixin, CreateView):
     model = Asset
     pk_url_kwarg = "id"
     form_class = AssetForm
@@ -84,7 +86,7 @@ class AssetCreate(CreateView):
         return super().form_valid(form)
 
 
-class AssetUpdate(UpdateView):
+class AssetUpdate(LoginRequiredMixin, UpdateView):
     model = Asset
     pk_url_kwarg = "id"
     form_class = AssetForm
@@ -94,7 +96,7 @@ class AssetUpdate(UpdateView):
         return super().form_valid(form)
 
 
-class UsageListView(ListView):
+class UsageListView(LoginRequiredMixin, ListView):
     model = Usage
     context_object_name = "usage"
     def get_queryset(self):
@@ -111,7 +113,7 @@ class UsageListView(ListView):
         return queryset
 
 
-class UsageDetailView(DetailView):
+class UsageDetailView(LoginRequiredMixin, DetailView):
     model = Usage
 
     def get_context_data(self, **kwargs):
@@ -120,7 +122,7 @@ class UsageDetailView(DetailView):
         return context
 
 
-class UsageCreateView(CreateView):
+class UsageCreateView(LoginRequiredMixin, CreateView):
     model = Usage
     fields = [
         "name",
@@ -129,7 +131,7 @@ class UsageCreateView(CreateView):
     ]
 
 
-class UsageUpdateView(UpdateView):
+class UsageUpdateView(LoginRequiredMixin, UpdateView):
     model = Usage
     fields = [
         "name",
@@ -138,7 +140,7 @@ class UsageUpdateView(UpdateView):
     ]
 
 
-class LicenceListView(ListView):
+class LicenceListView(LoginRequiredMixin, ListView):
     model = Licence
     context_object_name = "licences"
 
@@ -154,7 +156,7 @@ class LicenceListView(ListView):
         return qs
 
 
-class LicenceDetailView(DetailView):
+class LicenceDetailView(LoginRequiredMixin, DetailView):
     model = Licence
 
     def get_context_data(self, **kwargs):
@@ -163,17 +165,17 @@ class LicenceDetailView(DetailView):
         return context
 
 
-class LicenceCreate(CreateView):
+class LicenceCreate(LoginRequiredMixin, CreateView):
     model = Licence
     fields = '__all__'
 
 
-class LicenceUpdate(UpdateView):
+class LicenceUpdate(LoginRequiredMixin, UpdateView):
     model = Licence
     fields = '__all__'
 
 
-class DealerListView(ListView):
+class DealerListView(LoginRequiredMixin, ListView):
     model = Dealer
     context_object_name = "dealers"
 
@@ -201,7 +203,7 @@ class DealerListView(ListView):
         return qs
 
 
-class DealerCreate(CreateView):
+class DealerCreate(LoginRequiredMixin, CreateView):
     model = Dealer
     fields = '__all__'
 
@@ -209,7 +211,7 @@ class DealerCreate(CreateView):
         return f"{reverse('core:dealer-list')}?highlight=dealer-{self.object.id}"
 
 
-class DealerUpdate(UpdateView):
+class DealerUpdate(LoginRequiredMixin, UpdateView):
     model = Dealer
     fields = '__all__'
 
