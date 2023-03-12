@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav me-auto">
 
-        {% if perms.assets.view_asset %}
+        {% if perms.core.view_asset %}
         <a 
           class="nav-link"
           href="{% url 'core:asset-list' %}"
