@@ -189,8 +189,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Asset upload settings
 VALID_FILE_EXTENSIONS = ["svg", "jpg", "jpeg", "png", "webp", "avif"]
-MAX_ASSET_FILESIZE = 3000 * 1024  # Bytes
-
+MAX_ASSET_FILESIZE = env.int("MAX_ASSET_FILESIZE") * 1000 * 1024 if env("MAX_ASSET_FILESIZE", default=None) else 3000 * 1024  # Bytes
 
 if env('AUTH_LDAP'):
     from .ldap import *
