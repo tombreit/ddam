@@ -68,6 +68,7 @@
     <div class="flex-grow-1">
         <p>
             <span class="text-muted">
+                <i class="bi bi-signpost-split"></i>
                 Licence
             </span>
             <br>
@@ -83,11 +84,26 @@
         </p>
         <p>
             <span class="text-muted">
+                <i class="bi bi-c-circle"></i>
                 Copyright statement
             </span>
             <br>
             {% if asset.copyright_statement %}
                 {{ asset.copyright_statement }}
+            {% else %}
+                n/a
+            {% endif %}
+        </p>
+        <p>
+            <span class="text-muted">
+                <i class="bi bi-shop-window"></i>
+                Dealer
+            </span>
+            <br>
+            {% if asset.dealer %}
+                <a href="{% url 'core:dealer-list' %}?highlight=dealer-{{ asset.dealer.id }}">
+                    {{ asset.dealer }}
+                </a>
             {% else %}
                 n/a
             {% endif %}
