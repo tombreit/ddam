@@ -189,7 +189,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Asset upload settings
 VALID_FILE_EXTENSIONS = ["svg", "jpg", "jpeg", "png", "webp", "avif"]
-MAX_ASSET_FILESIZE = 1000 * 1024  # Bytes
+MAX_ASSET_FILESIZE = 3000 * 1024  # Bytes
 
 
 if env('AUTH_LDAP'):
