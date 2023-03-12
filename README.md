@@ -19,25 +19,38 @@ A small, focused, feature arm, minimal, web based, work in progress system to li
 ## 💪 Requirements
 
 * Python 3
-* Django 4
-* Bootstrap 5
-* Parcel
+* npm
 
 ## 🦘 Run
 
 ```bash
-cp .env.dist .env  # set your environment via .env
+# Set your environment via .env
+cp .env.dist .env  
+
+# Build static files (css/js)
 npm install && npm run build
+
+# Prepare Django
 pip install --requirement requirements.txt
 ./manage.py migrate
 ./manage.py createsuperuser
 ./manage.py runserver
 ```
 
+## 👏 Thanks
+
+I can't thank the people enough who make my work possible through their awsome and free ("free" as in "free speech") software and free projects. 
+
+My special thanks go to the projects:
+
+* [Django](https://www.djangoproject.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* ...and countless other (see `requirements.txt` and `packages.json`)
+ 
 ## 🐞 Tests
 
 Pull requests welcome.
 
 ## ☄ Need help?
 
-For support, please fill an issue or contact [Thomas Breitner via his website](https://thms.de/).
+For support, feature requests, hosting/on-premise or whatever, please fill an issue or contact [Thomas Breitner via his website](https://thms.de/).
