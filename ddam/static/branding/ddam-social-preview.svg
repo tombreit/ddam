@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280"
+   height="640"
+   viewBox="0 0 338.66666 169.33333"
+   version="1.1"
+   id="svg3237"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="ddam-social-preview.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3239"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.914906"
+     inkscape:cx="684.22329"
+     inkscape:cy="245.3804"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs3234">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1847"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1 @ F,1,0,1,0,0.04,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="4"
+       chamfer_steps="1"
+       flexible="true"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3464"
+       transform="matrix(3.256042,0,0,3.256042,-231.7971,-51.868338)">
+      <path
+         style="fill:#000000;fill-opacity:1;stroke-width:0.265;stroke-dasharray:none;paint-order:stroke fill markers"
+         id="rect179"
+         width="37.374653"
+         height="16.278336"
+         x="109.63336"
+         y="28.141594"
+         inkscape:path-effect="#path-effect1847"
+         d="m 111.12835,28.141594 h 35.22853 a 0.65113342,0.65113342 45 0 1 0.65113,0.651133 v 14.132216 a 1.4949861,1.4949861 135 0 1 -1.49498,1.494987 H 110.2845 a 0.65113342,0.65113342 45 0 1 -0.65114,-0.651134 V 29.63658 a 1.4949861,1.4949861 135 0 1 1.49499,-1.494986 z"
+         sodipodi:type="rect" />
+      <text
+         xml:space="preserve"
+         style="font-size:16.9333px;line-height:0;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';letter-spacing:2.30717px;word-spacing:0px;stroke-width:0.264583"
+         x="98.136856"
+         y="42.20015"
+         id="text119"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:16.9333px;line-height:1.25;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Light';letter-spacing:2.30717px;stroke-width:0.264583"
+           x="98.136856"
+           y="42.20015"
+           id="tspan3153"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed,  Medium';fill:#3459e6;fill-opacity:1"
+             id="tspan296">D</tspan><tspan
+             style="fill:#ffffff"
+             id="tspan2214">DAM</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:6.61458px;font-family:Lato;-inkscape-font-specification:Lato;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="86.889877"
+         y="54.807869"
+         id="text3163"><tspan
+           sodipodi:role="line"
+           id="tspan3161"
+           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-family:Lato;-inkscape-font-specification:'Lato Light';stroke-width:0.264583px"
+           x="86.889877"
+           y="54.807869">Django Digital Asset Management</tspan></text>
+    </g>
+  </g>
+</svg>
