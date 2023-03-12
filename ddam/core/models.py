@@ -191,12 +191,6 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
         verbose_name="Source URL",
         help_text="Source/Origin of asset. Give an URL."
     )
-    usage_restriction = models.ForeignKey(
-        'core.usagerestriction',
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
-    )
     usage = models.ManyToManyField(
         Usage,
         blank=True,
