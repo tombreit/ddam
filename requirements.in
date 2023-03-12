@@ -7,8 +7,5 @@ django-auth-ldap
 django-taggit
 django-htmx
 django-filter
-
-requests
-pygments
-idutils
 whitenoise
+python-magic

@@ -6,10 +6,6 @@
 #
 asgiref==3.6.0
     # via django
-certifi==2022.12.7
-    # via requests
-charset-normalizer==3.1.0
-    # via requests
 crispy-bootstrap5==0.7
     # via -r requirements.in
 django==4.1.7
@@ -35,34 +31,17 @@ django-htmx==1.14.0
     # via -r requirements.in
 django-taggit==3.1.0
     # via -r requirements.in
-gunicorn==20.1.0
-    # via -r requirements.in
-idna==3.4
-    # via requests
-idutils==1.2.0
-    # via -r requirements.in
-isbnlib==3.10.13
-    # via idutils
 pyasn1==0.4.8
     # via
     #   pyasn1-modules
     #   python-ldap
 pyasn1-modules==0.2.8
     # via python-ldap
-pygments==2.14.0
-    # via -r requirements.in
 python-ldap==3.4.3
     # via django-auth-ldap
-requests==2.28.2
+python-magic==0.4.27
     # via -r requirements.in
-six==1.16.0
-    # via idutils
 sqlparse==0.4.3
     # via django
-urllib3==1.26.14
-    # via requests
 whitenoise==6.4.0
     # via -r requirements.in
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools

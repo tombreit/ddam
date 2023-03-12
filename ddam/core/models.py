@@ -1,15 +1,14 @@
 import uuid
 from django.conf import settings
 from django.db import models
+from django.db.models import Count
 from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 
-from django.db import models
-from django.db.models import Count
-from django.urls import reverse
+from .validators import validate_fileextension, validate_filetype, validate_filesize
 
 
 class AbstractSingletonBaseModel(models.Model):
@@ -155,6 +154,11 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
     file = models.FileField(
         blank=False,
         upload_to='assets/',
+        validators=[
+            validate_fileextension,
+            validate_filetype,
+            validate_filesize,
+        ],
     )
     filename_orig = models.CharField(
         max_length=255,
