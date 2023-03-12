@@ -18,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
+    AUTH_LDAP=(bool, False),
 )
 environ.Env.read_env(BASE_DIR.parent / '.env')
 
@@ -187,3 +188,11 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # Asset upload settings
 VALID_FILE_EXTENSIONS = ["svg", "jpg", "jpeg", "png", "webp", "avif"]
 MAX_ASSET_FILESIZE = 1000 * 1024  # Bytes
+
+
+if env('AUTH_LDAP'):
+    from .ldap import *
+    # print("[i] AUTH_LDAP activated via .env")
+else:
+    # print("[i] AUTH_LDAP disabled in .env")
+    pass
