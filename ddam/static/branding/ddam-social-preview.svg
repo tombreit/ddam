@@ -9,6 +9,9 @@
    id="svg3237"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="ddam-social-preview.svg"
+   inkscape:export-filename="ddam-social-preview.png"
+   inkscape:export-xdpi="277.12"
+   inkscape:export-ydpi="277.12"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,11 +28,28 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.914906"
-     inkscape:cx="684.22329"
-     inkscape:cy="245.3804"
-     inkscape:current-layer="layer1" />
+     inkscape:cx="664.54914"
+     inkscape:cy="247.56642"
+     inkscape:current-layer="layer2" />
   <defs
      id="defs3234">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect349"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1 @ F,0,0,1,0,2.6458333,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="10"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
     <inkscape:path-effect
        effect="fillet_chamfer"
        id="path-effect1847"
@@ -48,6 +68,20 @@
        only_selected="false"
        hide_knots="false" />
   </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Ebene 2">
+    <rect
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="rect347"
+       width="287.44312"
+       height="124.15028"
+       x="25.611776"
+       y="22.591524"
+       inkscape:path-effect="#path-effect349"
+       d="m 28.25761,22.591524 h 282.15145 a 2.6458333,2.6458333 45 0 1 2.64583,2.645833 V 144.09597 a 2.6458333,2.6458333 135 0 1 -2.64583,2.64584 H 28.25761 a 2.6458333,2.6458333 45 0 1 -2.645834,-2.64584 l 0,-118.858613 a 2.6458333,2.6458333 135 0 1 2.645834,-2.645833 z" />
+  </g>
   <g
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"

@@ -1,5 +1,7 @@
 # DDAM
 
+![Logo](ddam/static/branding/ddam-social-preview.png)
+
 🖼 ➕ 🗃 ➕ ⚖️ **Django Digital Asset Management** (spoken as *da-miŋ*)
 
 *Ever thought about using a spreadsheet to manage the licenses and copyrights of photos? Ditch the spreadsheet and use DDAM:*
