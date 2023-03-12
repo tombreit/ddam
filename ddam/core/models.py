@@ -12,7 +12,7 @@ from django.db.models import Count
 from django.urls import reverse
 
 
-class SingletonBaseModel(models.Model):
+class AbstractSingletonBaseModel(models.Model):
 
     def save(self, *args, **kwargs):
         self.pk = 1

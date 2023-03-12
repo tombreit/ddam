@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.utils.translation import gettext_lazy as _
 
-from ddam.core.models import SingletonBaseModel
+from ddam.core.models import AbstractSingletonBaseModel
 
 
 def validate_logo_image_file_extension(value):
@@ -10,7 +10,7 @@ def validate_logo_image_file_extension(value):
     return FileExtensionValidator(allowed_extensions=valid_extensions)(value)
 
 
-class Branding(SingletonBaseModel):
+class Branding(AbstractSingletonBaseModel):
     organization_name_en = models.CharField(
         max_length=255,
         blank=False,
