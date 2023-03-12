@@ -16,7 +16,7 @@ from .forms import MultiFileFieldForm, AssetForm
 
 @login_required
 def asset_filter_list(request):
-    f = AssetFilter(request.GET, queryset=Asset.objects.all())
+    f = AssetFilter(request.GET, queryset=Asset.objects.all().order_by("-created_at"))
     return render(request, 'core/asset_filter_list.html', {'filter': f})
 
 
@@ -48,26 +48,6 @@ class MultiFileFieldFormView(LoginRequiredMixin, FormView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
-
-
-class AssetListView(LoginRequiredMixin, ListView):
-    model = Asset
-    context_object_name = "assets"
-
-    def get_queryset(self):
-        filter_expr = Q()
-        
-        tag = self.request.GET.get('tag')
-        if tag:
-            filter_expr = Q(tags__slug=tag)
-
-        qs = (
-            Asset
-            .objects
-            .filter(filter_expr)
-            .distinct()
-        )
-        return qs
 
 
 class AssetDetailView(LoginRequiredMixin, DetailView):
