@@ -12,11 +12,11 @@
 
 {% include 'core/includes/title_row.html' with heading="Asset" editurl="core:asset-update" objid=asset.pk %}
 
-<div class="d-flex flex-wrap mt-4">
-    <div class="flex-md-shrink-1 me-4">
+<div class="row mt-4">
+    <div class="col-lg-6">
         {% include 'core/includes/asset_img.html' %}
     </div>
-    <div class="flex-md-grow-1">
+    <div class="col-md-6 col-lg-3">
         <p>
             <span class="text-muted">
                 Title
@@ -61,7 +61,7 @@
         </div>
 
     </div>
-    <div class="flex-md-grow-1">
+    <div class="col-md-6 col-lg-3">
         <p>
             <span class="text-muted">
                 <i class="bi bi-signpost-split"></i>
