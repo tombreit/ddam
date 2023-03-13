@@ -8,6 +8,11 @@ header {
 
     .navbar {
         background-color: adjust-color($ddam-primary, $lightness: 10%);
+
+        .navbar-brand img {
+            max-height: 30px;
+            max-width: 60px;
+        }
     }
 
     .nav-link {
