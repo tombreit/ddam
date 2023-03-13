@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'core:asset-list' %}">
       <img
-          src="{% if branding.organization_logo %}{% get_media_prefix %}{{ branding.organization_logo }}{% else %}{% static 'branding/ddam-logo.svg' %}{% endif %}"
+          src="{% if branding.organization_logo %}{% get_media_prefix %}{{ branding.organization_logo }}{% else %}{% static 'branding/ddam-logo.opt.svg' %}{% endif %}"
           alt="{{ branding.organization_abbr }}"
       >
     </a>
