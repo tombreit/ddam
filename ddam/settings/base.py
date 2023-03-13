@@ -150,6 +150,8 @@ FORMAT_MODULE_PATH = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
