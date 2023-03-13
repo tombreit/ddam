@@ -6,14 +6,14 @@
 
 *Ever thought about using a spreadsheet to manage the licenses and copyrights of photos? Ditch the spreadsheet and use DDAM:*
 
-A small, focused, feature arm, minimal, web based, work in progress system to link digial assets to licences and track their use.
+A small, focused, feature arm, minimal, web based, work in progress system to link digital assets to licenses and track their use.
 
 ## 🏆 Features
 
-* Store digial assets. Currently only images (jpg, png, svg, webp etc.) are supported.
-* Link licences to assets. 
+* Store digital assets. Currently only images (jpg, png, svg, webp, avif etc.) are supported.
+* Link licenses to assets. 
 * Track usage of assets.
-* Webbased, Multiuser
+* Web based, multi user
 * (Optional) Login via LDAP/AD
 
 ## 💪 Requirements
@@ -46,7 +46,7 @@ Please [poke me](mailto:mail@thms.de) if you would like an account.
 
 ## 👏 Thanks
 
-I can't thank the people enough who make my work possible through their awsome and free ("free" as in "free speech") software and free projects. 
+I can't thank the people enough who make my work possible through their awesome and free ("free" as in "free speech") software and free projects. 
 
 My special thanks go to the projects:
 
