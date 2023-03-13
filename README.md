@@ -37,6 +37,13 @@ pip install --requirement requirements.txt
 ./manage.py runserver
 ```
 
+## 🛝 Demo instance
+
+[https://ddam.thms.de/](https://ddam.thms.de/)
+
+Please [poke me](mailto:mail@thms.de) if you would like an account.
+
+
 ## 👏 Thanks
 
 I can't thank the people enough who make my work possible through their awsome and free ("free" as in "free speech") software and free projects. 
