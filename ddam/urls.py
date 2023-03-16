@@ -3,9 +3,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
-
+from django.views.defaults import server_error
 
 urlpatterns = [
+    path('_500/', server_error),  # Forcefully raise http.500
     path('', RedirectView.as_view(url='core/', permanent=False)),
     path('admin/', admin.site.urls),
     path('accounts/', include('ddam.accounts.urls')),
