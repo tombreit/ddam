@@ -6,7 +6,7 @@ from django.views.generic.base import RedirectView
 from django.views.defaults import server_error
 
 urlpatterns = [
-    path('_500/', server_error),  # Forcefully raise http.500
+    path('_500/', server_error),  # Forcefully raise 500 Internal Server Error
     path('', RedirectView.as_view(url='core/', permanent=False)),
     path('admin/', admin.site.urls),
     path('accounts/', include('ddam.accounts.urls')),
