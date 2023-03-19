@@ -16,8 +16,14 @@ from .forms import MultiFileFieldForm, AssetForm
 
 @login_required
 def asset_filter_list(request):
-    f = AssetFilter(request.GET, queryset=Asset.objects.all().order_by("-created_at"))
-    return render(request, 'core/asset_filter_list.html', {'filter': f})
+    queryset = (
+        Asset
+        .objects
+        .select_related("licence")
+        .order_by("-created_at")
+    )
+    asset_filter = AssetFilter(request.GET, queryset=queryset)
+    return render(request, 'core/asset_filter_list.html', {'filter': asset_filter})
 
 
 class MultiFileFieldFormView(LoginRequiredMixin, FormView):
