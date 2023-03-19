@@ -31,15 +31,15 @@ def validate_fileextension(value):
     """
     Validate if file extension is in list of allowed file extensions.
     """
-    valid_file_extensions = settings.VALID_FILE_EXTENSIONS
-    return FileExtensionValidator(allowed_extensions=valid_file_extensions)(value)
+    DDAM_ASSET_VALID_FILE_EXTENSIONS = settings.DDAM_ASSET_VALID_FILE_EXTENSIONS
+    return FileExtensionValidator(allowed_extensions=DDAM_ASSET_VALID_FILE_EXTENSIONS)(value)
 
 
 def validate_filetype(value):
     """
     Validate if mime type of uploaded file is in list of allowed mime types.
     """
-    valid_mime_types = _get_mimetypes_for_extensions(settings.VALID_FILE_EXTENSIONS)
+    valid_mime_types = _get_mimetypes_for_extensions(settings.DDAM_ASSET_VALID_FILE_EXTENSIONS)
     file_mime_type = magic.from_buffer(value.read(2048), mime=True)
 
     if file_mime_type not in valid_mime_types:
@@ -51,7 +51,7 @@ def validate_filesize(value):
     """
     Validate if filesize is below max allowed file size.
     """
-    max_file_size = settings.MAX_ASSET_FILESIZE
+    max_file_size = settings.DDAM_ASSET_MAX_FILESIZE
     if value.size > max_file_size:
         message = _(f'Please keep file size under {filesizeformat(max_file_size)}. Current size is {filesizeformat(value.size)}.')
         code = "max_filesize_exceeded"

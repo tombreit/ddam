@@ -43,7 +43,7 @@ def get_or_create_rendition(image, filepath):
             # https://pillow.readthedocs.io/en/stable/handbook/tutorial.html#create-jpeg-thumbnails
             try:
                 with Image.open(img_in) as img_in_buffer:
-                    img_in_buffer.thumbnail(settings.IMG_RENDITION_LIST_SIZE)
+                    img_in_buffer.thumbnail(settings.DDAM_RENDITION_SIZE)
                     img_in_buffer.save(img_out, "WEBP")
                     (width, height) = img_in_buffer.size
 
@@ -61,7 +61,7 @@ def get_or_create_rendition(image, filepath):
 def get_rendition_path(image_obj):
     asset_path = Path(image_obj.name)
     rendition_filename = f"{asset_path.name}.webp"
-    rendition_path = settings.IMG_RENDITION_ROOT / rendition_filename
+    rendition_path = settings.DDAM_RENDITION_ROOT / rendition_filename
     # Our image renditions are in webp image format:
     rendition_path.with_suffix('.webp')
 

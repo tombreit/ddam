@@ -154,7 +154,7 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
     )
     file = models.FileField(
         blank=False,
-        upload_to=settings.ASSETS_MEDIA_DIR,
+        upload_to=settings.DDAM_ASSET_UPLOAD_DIR,
         validators=[
             validate_fileextension,
             validate_filetype,
