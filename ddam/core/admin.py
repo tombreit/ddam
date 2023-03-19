@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils.translation import ngettext
+from django.contrib import messages
 
+from .image_helpers import delete_rendition
 from .models import Asset, Licence, UsageRestriction, Usage, Dealer
 
 
@@ -39,6 +42,10 @@ class AssetAdmin(admin.ModelAdmin):
         "licence",
     ]
 
+    actions = [
+        "delete_renditions",
+    ]
+
     def get_list_display(self, request):
         list_display = list(super().get_list_display(request))
         list_display.append("image_preview")
@@ -47,5 +54,20 @@ class AssetAdmin(admin.ModelAdmin):
     def image_preview(self, obj):
         return format_html('<img src="{url}" height={height}>',
             url=obj.file.url,
-            height=80,
+            height=60,
         )
+
+    @admin.action(description='Purge image renditions')
+    def delete_renditions(self, request, queryset):
+        deleted = 0
+
+        for obj in queryset:
+            deleted_result = delete_rendition(obj.file)
+            if deleted_result:
+                deleted += 1
+
+        self.message_user(request, ngettext(
+            '%d rendition was successfully deleted.',
+            '%d renditions were successfully deleted.',
+            deleted,
+        ) % deleted, messages.SUCCESS)

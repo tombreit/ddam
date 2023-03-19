@@ -58,13 +58,35 @@ def get_or_create_rendition(image, filepath):
     return rendition
 
 
-def get_rendition(image):
-    asset_path = Path(image.name)
+def get_rendition_path(image_obj):
+    asset_path = Path(image_obj.name)
     rendition_filename = f"{asset_path.name}.webp"
     rendition_path = settings.IMG_RENDITION_ROOT / rendition_filename
     # Our image renditions are in webp image format:
     rendition_path.with_suffix('.webp')
 
-    rendition = get_or_create_rendition(image.path, rendition_path)
+    return rendition_path
+
+
+def get_rendition(image_obj):
+    rendition_path = get_rendition_path(image_obj)
+    rendition = get_or_create_rendition(image_obj.path, rendition_path)
 
     return rendition
+
+
+def delete_rendition(image_obj):
+    """
+    We could not be sure if a rendition actually exists, so
+    we carefully delete only existing renditions.
+    """
+    deleted = False
+    rendition_path = get_rendition_path(image_obj)
+
+    try:
+        Path(rendition_path).unlink(missing_ok=False)
+        deleted = True
+    except FileNotFoundError:
+        pass
+
+    return deleted
