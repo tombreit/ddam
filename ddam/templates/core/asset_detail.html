@@ -15,6 +15,18 @@
 <div class="row mt-4">
     <div class="col-lg-6">
         {% include 'core/includes/asset_img.html' %}
+        <p>
+            <br>
+            <a 
+                href="{{ asset.file.url }}"
+                title="Original file {{ asset.file.url }}"
+                style="overflow-wrap: break-word;"
+            >
+                <i class="bi bi-cloud-arrow-down"></i> 
+                {{ asset.filename_orig }}
+                (<span class="font-monospace">{{ asset.file.size | filesizeformat }}</span>)
+            </a>
+        </p>
     </div>
     <div class="col-md-6 col-lg-3">
         <p>
@@ -44,19 +56,15 @@
                 Meta
             </span>
             <div class="small text-muted">
-                Filesize: <span class="font-monospace">{{ asset.file.size | filesizeformat }}</span>
+                {% include 'core/includes/asset_audit.html' with action='uploaded' timestamp=asset.created_at by=asset.created_by %}
                 <br>
-                Orig filename: <span class="font-monospace">{{ asset.filename_orig }}</span>
+                {% include 'core/includes/asset_audit.html' with action='updated' timestamp=asset.updated_at by=asset.updated_by %}
+                <br>
                 {% if asset.source_url %}
-                <br>
                 <a href="{{ asset.source_url }}" title="{{ asset.source_url }}">
                     <i class="bi bi-file-binary"></i> Source URL
                 </a>
                 {% endif %}
-                <br>
-                {% include 'core/includes/asset_audit.html' with action='uploaded' timestamp=asset.created_at by=asset.created_by %}
-                <br>
-                {% include 'core/includes/asset_audit.html' with action='updated' timestamp=asset.updated_at by=asset.updated_by %}
             </div>
         </div>
 
