@@ -9,3 +9,4 @@ django-htmx
 django-filter
 whitenoise
 python-magic
+Pillow

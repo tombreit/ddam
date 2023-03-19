@@ -31,6 +31,8 @@ django-htmx==1.14.0
     # via -r requirements.in
 django-taggit==3.1.0
     # via -r requirements.in
+pillow==9.4.0
+    # via -r requirements.in
 pyasn1==0.4.8
     # via
     #   pyasn1-modules

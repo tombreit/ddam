@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 
+from .image_helpers import get_rendition
 from .validators import validate_fileextension, validate_filetype, validate_filesize
 
 
@@ -153,7 +154,7 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
     )
     file = models.FileField(
         blank=False,
-        upload_to='assets/',
+        upload_to=settings.ASSETS_MEDIA_DIR,
         validators=[
             validate_fileextension,
             validate_filetype,
@@ -217,6 +218,10 @@ class Asset(AbstractTimestampedModel, AbstractUserTrackedModel, AbstractUuidMode
 
         usage_qs = all_usage_queryset.filter(slug__in=usage_slugs)
         return usage_qs
+
+    @property
+    def get_image_rendition(self):        
+        return get_rendition(self.file)
 
     def get_absolute_url(self):
         return reverse('core:asset-detail', kwargs={'id': self.id})

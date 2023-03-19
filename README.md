@@ -10,7 +10,7 @@ A small, focused, feature arm, minimal, web based, work in progress system to li
 
 ## 🏆 Features
 
-* Store digital assets. Currently only images (jpg, png, svg, webp, avif etc.) are supported.
+* Store digital assets. Currently only images (jpg, png, svg, webp, ~~avif~~ etc.) are supported.
 * Link licenses to assets. 
 * Track usage of assets.
 * Web based, multi user

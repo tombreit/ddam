@@ -1,10 +1,14 @@
 <div class="asset-img">
     <div class="d-inline-block position-relative">
         <img 
-            src="{{ asset.file.url }}" 
+            src="{{ asset.get_image_rendition.url }}" 
             alt="{{ asset.title }}" 
-            decoing="async"
+            decoding="async"
             loading="lazy"
+            {% if asset.get_image_rendition.width and asset.get_image_rendition.height %}
+                width="{{ asset.get_image_rendition.width }}"
+                height="{{ asset.get_image_rendition.height }}"
+            {% endif %}
         >
         {% if asset.with_costs %}
         <span 

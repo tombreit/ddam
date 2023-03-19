@@ -194,8 +194,14 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Asset upload settings
-VALID_FILE_EXTENSIONS = ["svg", "jpg", "jpeg", "png", "webp", "avif"]
+ASSETS_MEDIA_DIR = 'assets'
+VALID_FILE_EXTENSIONS = ["svg", "jpg", "jpeg", "png", "webp"]  #  Removed "avif" for now, as Willow does not support it.
 MAX_ASSET_FILESIZE = env.int("MAX_ASSET_FILESIZE") * 1000 * 1024 if env("MAX_ASSET_FILESIZE", default=None) else 3000 * 1024  # Bytes
+
+# Image renditions
+IMG_RENDITION_LIST_SIZE = (600, 300)
+IMG_RENDITION_ROOT = MEDIA_ROOT / 'renditions'
+
 
 if env('AUTH_LDAP'):
     from .ldap import *
