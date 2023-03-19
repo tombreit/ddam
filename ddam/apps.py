@@ -1,4 +1,5 @@
 from django.contrib.admin.apps import AdminConfig
 
-class RDAdminConfig(AdminConfig):
+
+class DDAMAdminConfig(AdminConfig):
     default_site = 'ddam.admin.DDAMAdminSite'

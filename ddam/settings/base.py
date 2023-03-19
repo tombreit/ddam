@@ -56,7 +56,7 @@ THIRD_PARTY_APPS = [
     'django_filters',
 ]
 LOCAL_APPS = [
-    'ddam.apps.RDAdminConfig',  # replaces 'django.contrib.admin'
+    'ddam.apps.DDAMAdminConfig',  # replaces 'django.contrib.admin'
     'ddam.core',
     'ddam.accounts',
     'ddam.organization',
