@@ -37,6 +37,7 @@ class AssetFilter(django_filters.FilterSet):
         field_name='licence',
         # field_name='licence__slug',
         # to_field_name='slug',
+        null_label='No licence',
         widget=forms.RadioSelect,
         queryset=(
             Licence
