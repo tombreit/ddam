@@ -13,15 +13,13 @@ urlpatterns = [
 
     path('usage/', views.UsageListView.as_view(), name="usage-list"),
     path('usage/create/', views.UsageCreateView.as_view(), name='usage-create'),
-    path('usage/<int:pk>/', views.UsageDetailView.as_view(), name='usage-detail'),
-    path('usage/<int:pk>/update/', views.UsageUpdateView.as_view(), name='usage-update'),
+    path('usage/<uuid:id>/update/', views.UsageUpdateView.as_view(), name='usage-update'),
 
-    path('licence/', views.LicenceListView.as_view(), name="licence-list"),
-    path('licence/create/', views.LicenceCreate.as_view(), name='licence-create'),
-    path('licence/<int:pk>/', views.LicenceDetailView.as_view(), name='licence-detail'),
-    path('licence/<int:pk>/update/', views.LicenceUpdate.as_view(), name='licence-update'),
+    path('license/', views.LicenseListView.as_view(), name="license-list"),
+    path('license/create/', views.LicenseCreate.as_view(), name='license-create'),
+    path('license/<uuid:id>/update/', views.LicenseUpdate.as_view(), name='license-update'),
 
     path('dealer/', views.DealerListView.as_view(), name="dealer-list"),
     path('dealer/create/', views.DealerCreate.as_view(), name='dealer-create'),
-    path('dealer/<int:pk>/update/', views.DealerUpdate.as_view(), name='dealer-update'),
+    path('dealer/<uuid:id>/update/', views.DealerUpdate.as_view(), name='dealer-update'),
 ]

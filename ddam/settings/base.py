@@ -216,6 +216,12 @@ DDAM_ASSET_MAX_FILESIZE = env.int("DDAM_ASSET_MAX_FILESIZE") * 1000 * 1024 if en
 DDAM_RENDITION_SIZE = (600, 300)
 DDAM_RENDITION_ROOT = MEDIA_ROOT / 'renditions'
 
+# Map model class names to icons
+DDAM_ICONS_MAP = {
+    "dealer": "bi bi-shop-window",
+    "license": "bi bi-signpost-split",
+    "usage": "bi bi-diagram-2-fill",
+}
 
 if env('AUTH_LDAP'):
     from .ldap import *

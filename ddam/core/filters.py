@@ -3,7 +3,7 @@ from django.db.models import Count, Q
 
 import django_filters
 
-from .models import Asset, Licence, Usage
+from .models import Asset, License, Usage
 from .forms import AssetFilterForm
 
 
@@ -20,8 +20,9 @@ class AssetFilter(django_filters.FilterSet):
         label="Search",
     )
     usage = django_filters.ModelMultipleChoiceFilter(
-        field_name='usage__slug',
-        to_field_name='slug',
+        field_name='usage',
+        # field_name='usage__slug',
+        # to_field_name='slug',
         # conjoined=True,  # AND conjunction
         widget=forms.CheckboxSelectMultiple,
         queryset=(
@@ -33,14 +34,14 @@ class AssetFilter(django_filters.FilterSet):
             # .exclude(count=0)
         )
     )
-    licence = django_filters.ModelChoiceFilter(
-        field_name='licence',
-        # field_name='licence__slug',
+    license = django_filters.ModelChoiceFilter(
+        field_name='license',
+        # field_name='license__slug',
         # to_field_name='slug',
-        null_label='No licence',
+        null_label='No license',
         widget=forms.RadioSelect,
         queryset=(
-            Licence
+            License
             .objects
             .annotate(
                 count=Count('asset'),

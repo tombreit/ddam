@@ -7,14 +7,14 @@
         <br>
         {{ asset.title }}
         <br>
-        <span class="text-muted" title="Licence">
+        <span class="text-muted" title="License">
             <i class="bi bi-signpost-split"></i>
-            {{ asset.licence }}
+            {{ asset.license }}
         </span>
         <br>
 
         {% for tag in asset.usage_tags.all %}
-            {{ tag.name }} {{ tag.get_icon }}
+            {{ tag.name }} {{ tag.get_media_icon }}
         {% endfor %}
     </a>
 </div>

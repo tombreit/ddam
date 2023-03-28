@@ -1,0 +1,49 @@
+<div class="col">
+    <div 
+        id="object-{{ object.id }}" 
+        class="{% if object.highlight == 1 %} bg-opacity-25 text-bg-info {% endif %} card h-100"
+    >
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <div>
+                    {{ model.get_icon }} 
+                    {{ object.title }}
+                </div>
+                <div>
+                    <a 
+                        class="small card-link"
+                        href="{{ object.update_url }}"
+                    >
+                        <i class="bi bi-pencil-square"></i>
+                        Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body text-break">
+            {% if object.model_name == 'license' %}
+                <p class="card-text">
+                    License URL: 
+                    {% if object.url %}
+                        <a href="{{ object.url }}">{{ object.url }}</a>
+                    {% else %}
+                        n/a
+                    {% endif %}
+                </p>
+            {% elif object.model_name == 'usage' %}
+                <p class="card-text">                 
+                    {% if object.notes %}
+                        {{ object.notes | linebreaksbr }}
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <a 
+                class="card-link"
+                href="{% url 'core:asset-list' %}?{{ model.model_name }}={{ object.id }}">
+                <i class="bi bi-images"></i> {{ object.count }} related asset{{ object.count|pluralize }}
+            </a>
+        </div>
+    </div>
+</div>

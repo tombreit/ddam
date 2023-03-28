@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+{%  load static %}
+
+{% block title %}
+    {{ model.model_verbose_name_plural }}
+{% endblock %}
+
+
+{% block content %}
+
+{% with heading=model.model_verbose_name_plural create_url=model.create_url %}
+
+{% include 'core/includes/title_row.html' with heading=heading createurl=create_url %}
+
+{% if objects %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for object in objects %}
+        {% include 'core/includes/bs_card_list_item.html' %}
+    {% endfor %}
+    </div>
+{% else %}
+    <p>
+        <i>No {{ heading|lower }} found.</i>
+    </p>
+{% endif %}
+
+{% endwith %}
+{% endblock %}

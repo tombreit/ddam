@@ -73,13 +73,13 @@
         <p>
             <span class="text-muted">
                 <i class="bi bi-signpost-split"></i>
-                Licence
+                License
             </span>
             <br>
             <span class="text-muted">
-                {% if asset.licence %}
-                <a href="{% url 'core:licence-detail' asset.licence.pk %}">
-                    {{ asset.licence }}
+                {% if asset.license %}
+                <a href="{% url 'core:license-list'%}?highlight=object-{{ asset.license.id }}">
+                    {{ asset.license }}
                 </a>
                 {% else %}
                     n/a

@@ -1,15 +1,13 @@
-from django.db.models import Count, Q
-from django.db.models import Case, Value, When
+from django.db.models import Count, Case, Value, When
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView, UpdateView, FormView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Asset, Licence, Usage, Dealer
+from .models import Asset, License, Usage, Dealer
 from .filters import AssetFilter
 from .forms import MultiFileFieldForm, AssetForm
 
@@ -19,7 +17,7 @@ def asset_filter_list(request):
     queryset = (
         Asset
         .objects
-        .select_related("licence")
+        .select_related("license")
         .order_by("-created_at")
     )
     asset_filter = AssetFilter(request.GET, queryset=queryset)
@@ -82,124 +80,97 @@ class AssetUpdate(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class UsageListView(LoginRequiredMixin, ListView):
-    model = Usage
-    context_object_name = "usage"
-    def get_queryset(self):
-        queryset = super().get_queryset()
+class BaseListView(LoginRequiredMixin, ListView):
+    context_object_name = "objects"
+    template_name = "core/related_object_list.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "model": self.model,
+        })
+        return context
+
+    def get_queryset(self):
+
+        try:
+            to_highlight = self.request.GET.get('highlight')
+            to_highlight_id = to_highlight.replace("object-", "")
+        except:
+            to_highlight_id = None
+
+        queryset = super().get_queryset()
         queryset = (
             queryset
             .annotate(
                 count=Count('asset'),
             )
+            .annotate(
+                highlight=Case(
+                    When(id=to_highlight_id, then=Value(1)
+                ), default=Value(0))
+            )
             .order_by("-count")
         )
-
         return queryset
 
 
-class UsageDetailView(LoginRequiredMixin, DetailView):
+class BaseInstanceView:
+    pk_url_kwarg = "id"
+
+    def get_success_url(self):
+        app_label, model_name = self.model.get_app_label_and_model_name()
+        success_url = f"{app_label}:{model_name}-list"
+        highlight_query_param = f"highlight=object-{self.object.id}"
+        return f"{reverse(success_url)}?{highlight_query_param}"
+
+
+class UsageListView(BaseListView):
     model = Usage
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['assets'] = Asset.objects.filter(usage=self.kwargs['pk']).count()
-        return context
 
-
-class UsageCreateView(LoginRequiredMixin, CreateView):
+class UsageCreateView(LoginRequiredMixin, BaseInstanceView, CreateView):
     model = Usage
     fields = [
-        "name",
+        "title",
         "media",
         "notes",
     ]
 
 
-class UsageUpdateView(LoginRequiredMixin, UpdateView):
+class UsageUpdateView(LoginRequiredMixin, BaseInstanceView, UpdateView):
     model = Usage
     fields = [
-        "name",
+        "title",
         "media",
         "notes",
     ]
 
 
-class LicenceListView(LoginRequiredMixin, ListView):
-    model = Licence
-    context_object_name = "licences"
-
-    def get_queryset(self):
-        qs = (
-            Licence
-            .objects
-            .annotate(
-                count=Count('asset'),
-            )
-            .all()
-        )
-        return qs
+class LicenseListView(BaseListView):
+    model = License
 
 
-class LicenceDetailView(LoginRequiredMixin, DetailView):
-    model = Licence
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['assets'] = Asset.objects.filter(licence=self.kwargs['pk']).count()
-        return context
-
-
-class LicenceCreate(LoginRequiredMixin, CreateView):
-    model = Licence
+class LicenseCreate(LoginRequiredMixin, BaseInstanceView, CreateView):
+    model = License
     fields = '__all__'
 
 
-class LicenceUpdate(LoginRequiredMixin, UpdateView):
-    model = Licence
+class LicenseUpdate(LoginRequiredMixin, BaseInstanceView, UpdateView):
+    model = License
     fields = '__all__'
 
 
-class DealerListView(LoginRequiredMixin, ListView):
+class DealerListView(BaseListView):
     model = Dealer
-    context_object_name = "dealers"
-
-    def get_queryset(self):
-        try:
-            to_highlight = self.request.GET.get('highlight')
-            to_highlight_dealer_id = to_highlight.replace("dealer-", "")
-        except:
-            to_highlight_dealer_id = None
-
-        qs = (
-            Dealer
-            .objects
-            .annotate(
-                count=Count('asset'),
-            )
-            .annotate(
-                highlight=Case(
-                    When(id=to_highlight_dealer_id, then=Value(1)
-                ), default=Value(0))
-            )
-            .all()
-            .order_by("name")
-        )
-        return qs
 
 
-class DealerCreate(LoginRequiredMixin, CreateView):
+class DealerCreate(LoginRequiredMixin, BaseInstanceView, CreateView):
     model = Dealer
     fields = '__all__'
 
-    def get_success_url(self):
-        return f"{reverse('core:dealer-list')}?highlight=dealer-{self.object.id}"
 
-
-class DealerUpdate(LoginRequiredMixin, UpdateView):
+class DealerUpdate(LoginRequiredMixin, BaseInstanceView, UpdateView):
     model = Dealer
     fields = '__all__'
 
-    def get_success_url(self):
-        return f"{reverse('core:dealer-list')}?highlight=dealer-{self.object.id}"

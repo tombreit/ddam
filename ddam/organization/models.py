@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.utils.translation import gettext_lazy as _
 
-from ddam.core.models import AbstractSingletonBaseModel
+from ddam.core.model_mixins import AbstractSingletonBaseModel
 
 
 def validate_logo_image_file_extension(value):

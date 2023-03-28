@@ -27,13 +27,13 @@ class AssetFilterForm(forms.Form):
         self.helper = FormHelper()
         self.helper.form_id = 'asset-filter-form'
         self.helper.form_method = 'get'
-        self.fields['licence'].label = mark_safe('<i class="bi bi-signpost-split"></i> Licence')
+        self.fields['license'].label = mark_safe('<i class="bi bi-signpost-split"></i> License')
         self.fields['usage'].label = mark_safe('<i class="bi bi-diagram-2-fill"></i> Usage')
         self.helper.layout = Layout(
             Div(
                 Field('title', wrapper_class='form-group col-md-4 pe-4'),
                 InlineCheckboxes('usage', wrapper_class='form-group col-md-4 px-4'),
-                InlineRadios('licence', wrapper_class='form-group col-md-4 ps-4'),
+                InlineRadios('license', wrapper_class='form-group col-md-4 ps-4'),
                 css_class="row"
             ),
             HTML("""
@@ -52,7 +52,7 @@ class AssetForm(forms.ModelForm):
         self.helper.form_id = 'asset-form'
         self.helper.form_method = 'post'
         self.fields['with_costs'].label = mark_safe('<i class="bi bi-coin"></i> Paid for?')
-        self.fields['licence'].label = mark_safe('<i class="bi bi-signpost-split"></i> Licence')
+        self.fields['license'].label = mark_safe('<i class="bi bi-signpost-split"></i> License')
         self.fields['usage'].label = mark_safe('<i class="bi bi-diagram-2-fill"></i> Usage')
         self.helper.layout = Layout(
             FloatingField('title'),
@@ -72,7 +72,7 @@ class AssetForm(forms.ModelForm):
                     css_class="d-flex mb-2",
                 ),
                 FloatingField('copyright_statement'),
-                InlineRadios('licence'),
+                InlineRadios('license'),
                 css_class="bg-light rounded p-4 my-4",
             ),
             Div(
@@ -99,10 +99,10 @@ class AssetForm(forms.ModelForm):
             "source_url",
             "dealer",
             "with_costs",
-            "licence",
+            "license",
             "usage",
         ]
         widgets = {
-            'licence': forms.RadioSelect,
+            'license': forms.RadioSelect,
             'usage': forms.CheckboxSelectMultiple,
         }

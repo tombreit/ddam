@@ -4,42 +4,37 @@ from django.utils.translation import ngettext
 from django.contrib import messages
 
 from .image_helpers import delete_rendition
-from .models import Asset, Licence, UsageRestriction, Usage, Dealer
+from . import models
 
 
-@admin.register(Usage)
+@admin.register(models.Usage)
 class UsageAdmin(admin.ModelAdmin):
-    list_display = ["name", "slug"]
-    ordering = ["name", "slug"]
-    search_fields = ["name"]
-    prepopulated_fields = {"slug": ["name"]}
+    list_display = ["title"]
+    ordering = ["title"]
+    search_fields = ["title"]
+    # prepopulated_fields = {"slug": ["title"]}
 
 
-@admin.register(UsageRestriction)
-class UsageRestrictionAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Dealer)
+@admin.register(models.Dealer)
 class DealerAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Licence)
-class LicenceAdmin(admin.ModelAdmin):
-    list_display = ["name", "slug", "url"]
-    search_fields = ["name", "slug", "url"]
-    prepopulated_fields = {"slug": ["name"]}
+@admin.register(models.License)
+class LicenseAdmin(admin.ModelAdmin):
+    list_display = ["title", "url"]
+    search_fields = ["title", "url"]
+    # prepopulated_fields = {"slug": ["title"]}
 
 
-@admin.register(Asset)
+@admin.register(models.Asset)
 class AssetAdmin(admin.ModelAdmin):
     readonly_fields = [
         "image_preview",
     ]
 
     list_filter = [
-        "licence",
+        "license",
     ]
 
     actions = [
