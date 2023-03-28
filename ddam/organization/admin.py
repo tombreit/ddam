@@ -25,18 +25,9 @@ class BrandingAdmin(admin.ModelAdmin):
         ('Logos', {
             'classes': ('collapse',),
             'fields': (
-                'organization_logo_white',
-                'organization_logo_black',
+                'organization_logo',
                 'organization_figurative_mark',
                 'organization_favicon'
-            ),
-        }),
-        ('IT Department', {
-            'classes': ('collapse',),
-            'fields': (
-                'organization_it_dept_name',
-                'organization_it_dept_phone',
-                'organization_it_dept_email',
             ),
         }),
         ('Misc', {
