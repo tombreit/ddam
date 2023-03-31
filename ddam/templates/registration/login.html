@@ -12,9 +12,6 @@
 .form-signin {
   max-width: 430px;
 }
-.form-signin img {
-  max-width: 430px;
-}
 
 .form-signin .form-floating:focus-within {
   z-index: 2;
@@ -34,11 +31,21 @@
 {% endblock extra_css %}
 
 {% block content %}
+
 <div class="form-signin-wrapper text-center">
   <div class="form-signin w-100 m-auto">
-    <form method="post">
-        <img class="mb-4" src="{% static 'branding/ddam-social-preview.png' %}" alt="">
 
+    <img class="mb-4 img-fluid" src="{% static 'branding/ddam-social-preview.png' %}" alt="">
+
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p class="alert alert-warning">
+          {{ error }}
+      </p>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post">
         {% csrf_token %}
 
         <div id="div_id_username" class="form-floating">
