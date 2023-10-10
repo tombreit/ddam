@@ -28,7 +28,7 @@ RUN_DIR.mkdir(parents=True, exist_ok=True)
 
 DEBUG = env('DEBUG')
 SECRET_KEY = env('SECRET_KEY', default="django-insecure-asdfasdfasdf")
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=["*"])
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=[])
 
 ADMINS = [x.split(':') for x in env.list('ADMINS')]
