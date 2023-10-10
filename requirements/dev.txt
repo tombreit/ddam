@@ -4,13 +4,13 @@
 #
 #    pip-compile --output-file=dev.txt dev.in
 #
-asgiref==3.6.0
+asgiref==3.7.2
     # via
     #   -r prod.txt
     #   django
 crispy-bootstrap5==0.7
     # via -r prod.txt
-django==4.1.7
+django==4.2.6
     # via
     #   -r prod.txt
     #   crispy-bootstrap5
@@ -20,30 +20,30 @@ django==4.1.7
     #   django-filter
     #   django-htmx
     #   django-taggit
-django-auth-ldap==4.1.0
+django-auth-ldap==4.6.0
     # via -r prod.txt
 django-crispy-forms==2.0
     # via
     #   -r prod.txt
     #   crispy-bootstrap5
-django-debug-toolbar==3.8.1
+django-debug-toolbar==4.2.0
     # via -r dev.in
-django-environ==0.10.0
+django-environ==0.11.2
     # via -r prod.txt
-django-filter==22.1
+django-filter==23.3
     # via -r prod.txt
-django-htmx==1.14.0
+django-htmx==1.16.0
     # via -r prod.txt
-django-taggit==3.1.0
+django-taggit==4.0.0
     # via -r prod.txt
-pillow==9.4.0
+pillow==10.0.1
     # via -r prod.txt
-pyasn1==0.4.8
+pyasn1==0.5.0
     # via
     #   -r prod.txt
     #   pyasn1-modules
     #   python-ldap
-pyasn1-modules==0.2.8
+pyasn1-modules==0.3.0
     # via
     #   -r prod.txt
     #   python-ldap
@@ -53,10 +53,10 @@ python-ldap==3.4.3
     #   django-auth-ldap
 python-magic==0.4.27
     # via -r prod.txt
-sqlparse==0.4.3
+sqlparse==0.4.4
     # via
     #   -r prod.txt
     #   django
     #   django-debug-toolbar
-whitenoise==6.4.0
+whitenoise==6.5.0
     # via -r prod.txt
