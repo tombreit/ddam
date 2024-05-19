@@ -8,7 +8,7 @@ asgiref==3.7.2
     # via django
 crispy-bootstrap5==0.7
     # via -r prod.in
-django==4.2.6
+django==5.0.6
     # via
     #   -r prod.in
     #   crispy-bootstrap5

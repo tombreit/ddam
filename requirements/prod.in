@@ -1,4 +1,4 @@
-django==4.2.6
+django==5.0.6
 
 django-environ
 django-crispy-forms
