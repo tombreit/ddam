@@ -3,6 +3,6 @@
 Compile actual requirements files via [pip-tools](https://github.com/jazzband/pip-tools) `pip-compile` command:
 
 ```bash
-pip-compile prod.in --output-file prod.txt
-pip-compile dev.in --output-file dev.txt
+pip-compile requirements/prod.in --output-file requirements.txt
+pip-compile requirements/dev.in --output-file requirements-dev.txt
 ```
