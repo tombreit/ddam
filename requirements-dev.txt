@@ -6,14 +6,14 @@
 #
 asgiref==3.8.1
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   django
     #   django-htmx
 crispy-bootstrap5==2024.10
-    # via -r requirements/prod.txt
-django==5.1.2
+    # via -r /home/tombreit/projects/ddam/requirements.txt
+django==5.1.4
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   crispy-bootstrap5
     #   django-auth-ldap
     #   django-crispy-forms
@@ -21,43 +21,43 @@ django==5.1.2
     #   django-filter
     #   django-htmx
     #   django-taggit
-django-auth-ldap==5.0.0
-    # via -r requirements/prod.txt
+django-auth-ldap==5.1.0
+    # via -r /home/tombreit/projects/ddam/requirements.txt
 django-crispy-forms==2.3
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   crispy-bootstrap5
 django-debug-toolbar==4.4.6
     # via -r requirements/dev.in
 django-environ==0.11.2
-    # via -r requirements/prod.txt
+    # via -r /home/tombreit/projects/ddam/requirements.txt
 django-filter==24.3
-    # via -r requirements/prod.txt
-django-htmx==1.19.0
-    # via -r requirements/prod.txt
+    # via -r /home/tombreit/projects/ddam/requirements.txt
+django-htmx==1.21.0
+    # via -r /home/tombreit/projects/ddam/requirements.txt
 django-taggit==6.1.0
-    # via -r requirements/prod.txt
-pillow==10.4.0
-    # via -r requirements/prod.txt
+    # via -r /home/tombreit/projects/ddam/requirements.txt
+pillow==11.0.0
+    # via -r /home/tombreit/projects/ddam/requirements.txt
 pyasn1==0.6.1
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   pyasn1-modules
     #   python-ldap
 pyasn1-modules==0.4.1
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   python-ldap
 python-ldap==3.4.4
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   django-auth-ldap
 python-magic==0.4.27
-    # via -r requirements/prod.txt
-sqlparse==0.5.1
+    # via -r /home/tombreit/projects/ddam/requirements.txt
+sqlparse==0.5.2
     # via
-    #   -r requirements/prod.txt
+    #   -r /home/tombreit/projects/ddam/requirements.txt
     #   django
     #   django-debug-toolbar
-whitenoise==6.7.0
-    # via -r requirements/prod.txt
+whitenoise==6.8.2
+    # via -r /home/tombreit/projects/ddam/requirements.txt
