@@ -9,9 +9,9 @@ asgiref==3.8.1
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   django
     #   django-htmx
-crispy-bootstrap5==2024.10
+crispy-bootstrap5==2025.6
     # via -r /home/tombreit/projects/ddam/requirements.txt
-django==5.1.5
+django==5.2.3
     # via
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   crispy-bootstrap5
@@ -21,30 +21,30 @@ django==5.1.5
     #   django-filter
     #   django-htmx
     #   django-taggit
-django-auth-ldap==5.1.0
+django-auth-ldap==5.2.0
     # via -r /home/tombreit/projects/ddam/requirements.txt
-django-crispy-forms==2.3
+django-crispy-forms==2.4
     # via
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   crispy-bootstrap5
-django-debug-toolbar==5.0.1
+django-debug-toolbar==5.2.0
     # via -r requirements/dev.in
 django-environ==0.12.0
     # via -r /home/tombreit/projects/ddam/requirements.txt
-django-filter==24.3
+django-filter==25.1
     # via -r /home/tombreit/projects/ddam/requirements.txt
-django-htmx==1.21.0
+django-htmx==1.23.0
     # via -r /home/tombreit/projects/ddam/requirements.txt
 django-taggit==6.1.0
     # via -r /home/tombreit/projects/ddam/requirements.txt
-pillow==11.1.0
+pillow==11.2.1
     # via -r /home/tombreit/projects/ddam/requirements.txt
 pyasn1==0.6.1
     # via
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   pyasn1-modules
     #   python-ldap
-pyasn1-modules==0.4.1
+pyasn1-modules==0.4.2
     # via
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   python-ldap
@@ -59,5 +59,5 @@ sqlparse==0.5.3
     #   -r /home/tombreit/projects/ddam/requirements.txt
     #   django
     #   django-debug-toolbar
-whitenoise==6.8.2
+whitenoise==6.9.0
     # via -r /home/tombreit/projects/ddam/requirements.txt
