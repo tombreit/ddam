@@ -4,16 +4,16 @@
 #
 #    pip-compile --output-file=requirements-dev.txt requirements/dev.in
 #
-asgiref==3.8.1
+asgiref==3.9.2
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   django
     #   django-htmx
 crispy-bootstrap5==2025.6
-    # via -r /home/tombreit/projects/ddam/requirements.txt
-django==5.2.3
+    # via -r requirements.txt
+django==5.2.7
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   crispy-bootstrap5
     #   django-auth-ldap
     #   django-crispy-forms
@@ -22,42 +22,42 @@ django==5.2.3
     #   django-htmx
     #   django-taggit
 django-auth-ldap==5.2.0
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+    # via -r requirements.txt
 django-crispy-forms==2.4
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   crispy-bootstrap5
 django-debug-toolbar==5.2.0
     # via -r requirements/dev.in
 django-environ==0.12.0
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+    # via -r requirements.txt
 django-filter==25.1
-    # via -r /home/tombreit/projects/ddam/requirements.txt
-django-htmx==1.23.0
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+    # via -r requirements.txt
+django-htmx==1.26.0
+    # via -r requirements.txt
 django-taggit==6.1.0
-    # via -r /home/tombreit/projects/ddam/requirements.txt
-pillow==11.2.1
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+    # via -r requirements.txt
+pillow==11.3.0
+    # via -r requirements.txt
 pyasn1==0.6.1
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   pyasn1-modules
     #   python-ldap
 pyasn1-modules==0.4.2
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   python-ldap
 python-ldap==3.4.4
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   django-auth-ldap
 python-magic==0.4.27
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+    # via -r requirements.txt
 sqlparse==0.5.3
     # via
-    #   -r /home/tombreit/projects/ddam/requirements.txt
+    #   -r requirements.txt
     #   django
     #   django-debug-toolbar
-whitenoise==6.9.0
-    # via -r /home/tombreit/projects/ddam/requirements.txt
+whitenoise==6.11.0
+    # via -r requirements.txt

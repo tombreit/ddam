@@ -4,13 +4,13 @@
 #
 #    pip-compile --output-file=requirements.txt requirements/prod.in
 #
-asgiref==3.8.1
+asgiref==3.9.2
     # via
     #   django
     #   django-htmx
 crispy-bootstrap5==2025.6
     # via -r requirements/prod.in
-django==5.2.3
+django==5.2.7
     # via
     #   -r requirements/prod.in
     #   crispy-bootstrap5
@@ -29,11 +29,11 @@ django-environ==0.12.0
     # via -r requirements/prod.in
 django-filter==25.1
     # via -r requirements/prod.in
-django-htmx==1.23.0
+django-htmx==1.26.0
     # via -r requirements/prod.in
 django-taggit==6.1.0
     # via -r requirements/prod.in
-pillow==11.2.1
+pillow==11.3.0
     # via -r requirements/prod.in
 pyasn1==0.6.1
     # via
@@ -47,5 +47,5 @@ python-magic==0.4.27
     # via -r requirements/prod.in
 sqlparse==0.5.3
     # via django
-whitenoise==6.9.0
+whitenoise==6.11.0
     # via -r requirements/prod.in
