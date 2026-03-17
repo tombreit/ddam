@@ -4,13 +4,13 @@
 #
 #    pip-compile --output-file=requirements.txt requirements/prod.in
 #
-asgiref==3.11.0
+asgiref==3.11.1
     # via
     #   django
     #   django-htmx
-crispy-bootstrap5==2025.6
+crispy-bootstrap5==2026.3
     # via -r requirements/prod.in
-django==5.2.9
+django==6.0.3
     # via
     #   -r requirements/prod.in
     #   crispy-bootstrap5
@@ -21,11 +21,11 @@ django==5.2.9
     #   django-taggit
 django-auth-ldap==5.3.0
     # via -r requirements/prod.in
-django-crispy-forms==2.5
+django-crispy-forms==2.6
     # via
     #   -r requirements/prod.in
     #   crispy-bootstrap5
-django-environ==0.12.0
+django-environ==0.13.0
     # via -r requirements/prod.in
 django-filter==25.2
     # via -r requirements/prod.in
@@ -33,9 +33,9 @@ django-htmx==1.27.0
     # via -r requirements/prod.in
 django-taggit==6.1.0
     # via -r requirements/prod.in
-pillow==12.0.0
+pillow==12.1.1
     # via -r requirements/prod.in
-pyasn1==0.6.1
+pyasn1==0.6.3
     # via
     #   pyasn1-modules
     #   python-ldap
@@ -47,5 +47,5 @@ python-magic==0.4.27
     # via -r requirements/prod.in
 sqlparse==0.5.5
     # via django
-whitenoise==6.11.0
+whitenoise==6.12.0
     # via -r requirements/prod.in
